@@ -1,14 +1,12 @@
-// this entire file is a cache layer >>>
-
-// in this case and I guess in every other case too, cache layer is used to >>>
+// in this case and I guess in every other case too, cache layer is used to:
 // serialize/deserialize (stringify, parse)
 // apply timestamp
 // remove expired items
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import moment from "moment"; // ACTUALLY TOWARDS THE END, MOSH SAID USE dayjs instead to optimize javascript bundle!
+import moment from "moment"; 
 
-const prefix = "cache"; // this is totally optional!
+const prefix = "cache"; 
 const expiryInMinutes = 5;
 
 const store = async (key, value) => {
@@ -40,8 +38,7 @@ const get = async (key) => {
     if (!item) return null;
 
     if (isExpired(item)) {
-      // if expired, clear the cache!
-      await AsyncStorage.removeItem(prefix + key); // this line is violating Command Query Separation (CQS) principle, in this case that's ok cause it's not the end of the world!
+      await AsyncStorage.removeItem(prefix + key); 
       return null;
     }
 

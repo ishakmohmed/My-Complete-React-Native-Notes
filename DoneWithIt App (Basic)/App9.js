@@ -19,22 +19,17 @@ export default function App() {
           // borderTopLeftRadius: 30,
           // borderRadius: 50,
 
-          // SHADOWS FOR IOS (need to pass at least these 3 properties) >>>
+          // iOS only
           // shadowColor: "grey",
           // shadowOffset: {
           //   width: 10,
           //   height: 10,
           // },
           // shadowOpacity: 1,
-          // shadowRadius: 10    // <<<<< THIS IS OPTIONAL: MAKES SHADOW SOFTER!
+          // shadowRadius: 10
 
-          // SHADOWS FOR ANDROID (ONLY 1 PROPERTY) >>>
+          // Android only
           // elevation: 20,
-
-          // PADDING >
-          // you've got padding, paddingTop, etc, PADDINGHORIZONTAL (LEFT AND RIGHT), PADDINGVERTICAL (TOP, BOTTOM)
-
-          // MARGIN (YOU ALREADY KNOW THIS!)
         }}
       ></View>
     </View>

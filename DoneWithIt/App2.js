@@ -1,4 +1,3 @@
-// import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import { TextInput } from "react-native";
 import Screen from "./app/components/Screen";
@@ -9,8 +8,7 @@ export default function App() {
   return (
     <Screen>
       <TextInput
-        // clearButtonMode="always" // on works on iOS
-        secureTextEntry // means you can capture password
+        secureTextEntry 
         maxLength={3}
         keyboardType="numeric"
         onChange={(text) => setFirstName(text)}

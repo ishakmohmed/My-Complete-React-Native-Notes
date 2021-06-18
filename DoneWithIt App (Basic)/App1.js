@@ -11,8 +11,6 @@ export default function App() {
         Super long text...
       </Text>
       <Image source={require("./assets/favicon.png")} />
-      {/* ^ require() returns number- reference to image */}
-      {/* NOTE: image has also loadingIndicatorSource prop- you know how it works! */}
       <Image
         fadeDuration={1000}
         blurRadius={2}
@@ -22,10 +20,6 @@ export default function App() {
           uri: "https://picsum.photos/200/300",
         }}
       />
-      {/* ^ {}, width, and height for network img */}
-      {/* NOTE: in IMAGE, by default fade duration is 300ms AND WORKS ONLY ON ANDROID */}
-
-      {/* NOTE ^ there is also resizeMode prop in Image */}
       <StatusBar style="auto" />
     </SafeAreaView>
   );

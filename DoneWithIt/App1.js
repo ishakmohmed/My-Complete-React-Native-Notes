@@ -1,10 +1,10 @@
-// import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { View, Text } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 
-import AppText from "./app/components/AppText/AppText"; // my custom component
-// ^^^ but now I have AppText.android.js and AppText.ios.js, but I just needa import AppText and depending on the platform, RN will automatically import the right implementation!
+import AppText from "./app/components/AppText/AppText"; 
+// in this project, we've got AppText.android.js and AppText.ios.js
+// import AppText only and React Native will import the right implementation
 
 export default function App() {
   return (

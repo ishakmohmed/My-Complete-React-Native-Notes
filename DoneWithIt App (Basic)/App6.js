@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
@@ -10,8 +9,8 @@ export default function App() {
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
-        flexWrap: "wrap", // when we use flexWrap, the alignItems property behaves differently - when you have multiple lines, alignItems align the items within each line - to "fix", use align-content!
-        alignContent: "center", // alignment of the entire content, BUT ALIGNCONTENT WILL ONLY WORK IF WE'VE GOT WWWRRAAAPPPIINNNGGG, otherwise it has got no effect!
+        flexWrap: "wrap", // when you use flexWrap, the alignItems property behaves differently where when you have multiple lines, alignItems align the items within each line, and to "fix", use align-content
+        alignContent: "center", // only works with flexWrap
       }}
     >
       <View

@@ -13,7 +13,7 @@ import {
 } from "react-native";
 
 export default function App() {
-  const handlePress = () => console.log("TEXT HAS BEEN PRESSED!");
+  const handlePress = () => console.log("Pressed!");
 
   return (
     <SafeAreaView style={styles.container}>
@@ -36,8 +36,6 @@ export default function App() {
         />
       </TouchableWithoutFeedback> */}
 
-      {/* *********************************************** */}
-
       {/* <TouchableOpacity
         onPress={() => console.log("Image has been pressed!")}
         onLongPress={() => console.log("Long pressed image!")}
@@ -52,8 +50,6 @@ export default function App() {
           }}
         />
       </TouchableOpacity> */}
-
-      {/* **************************************************** */}
 
       {/* <TouchableHighlight
         onPress={() => console.log("Image has been pressed!")}
@@ -70,12 +66,11 @@ export default function App() {
         />
       </TouchableHighlight> */}
 
-      {/* **************************************************** */}
-      {/* THIS ONE IS FOR ANDROID ONLY, but it doesn't really work with images, rather it works with views that have a background color >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */}
+      {/* Android only */}
 
       {/* <TouchableNativeFeedback
         onPress={() =>
-          console.log("TOUCHABLE NATIVE FEEDBACK HAS BEEN PRESSED!")
+          console.log("LOL!")
         }
         background={TouchableNativeFeedback.Ripple("yellow")}
       >

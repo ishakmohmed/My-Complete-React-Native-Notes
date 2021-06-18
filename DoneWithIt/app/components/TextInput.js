@@ -4,8 +4,6 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import defaultStyles from "../config/styles";
 
-// THIS IS A REUSABLE COMPONENT!
-
 function AppTextInput({ icon, width = "100%", ...otherProps }) {
   return (
     <View style={[styles.container, { width }]}>
@@ -19,11 +17,9 @@ function AppTextInput({ icon, width = "100%", ...otherProps }) {
       )}
       <TextInput
         placeholderTextColor={defaultStyles.colors.medium}
-        // ^ "placeholderTextColor" is available by default!
         style={styles.textInput}
         {...otherProps}
       />
-      {/* ^ "other props" like placeholder, in this case it's only placeholder. */}
     </View>
   );
 }

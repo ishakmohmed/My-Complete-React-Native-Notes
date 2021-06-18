@@ -1,8 +1,6 @@
 import React from "react";
 import { Text, StyleSheet, Platform } from "react-native";
 
-// THIS IS MY CUSTOM COMPONENT!
-
 function AppText({ children }) {
   return <Text style={styles.text}>{children}</Text>;
 }
@@ -15,12 +13,11 @@ const styles = StyleSheet.create({
   //   color: "red",
   // },
 
-  // INSTEAD OF THIS ^^^, >>>>>>>>>>>>>>>>>>>>>>>>>>
+  // or
 
   text: {
     color: "tomato",
     ...Platform.select({
-      // if you don't want code duplication in StyleSheet!
       ios: {
         fontSize: 20,
         fontFamily: "Avenir",

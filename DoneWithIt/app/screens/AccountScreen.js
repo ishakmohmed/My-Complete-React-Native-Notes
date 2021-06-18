@@ -6,8 +6,6 @@ import ListItem from "./../components/ListItem";
 import ListItemSeparator from "./../components/ListItemSeparator";
 import Icon from "./../components/Icon";
 import colors from "../config/colors";
-// import AuthContext from "../auth/context";
-// import authStorage from "../auth/storage";
 import useAuth from "../auth/useAuth";
 
 const menuItems = [
@@ -29,10 +27,7 @@ const menuItems = [
 ];
 
 function AccountScreen({ navigation }) {
-  // const { user, setUser } = useContext(AuthContext); // in account screen im gonna set the user to null in app.js when a button is clicked, which means logout!
-
-  // ^ little change to above code, I extracted useContext(AuthContext) to a custom hook, so here's the new code >>>
-  const { user, logOut } = useAuth(); // here setUser(null) is implemented inside logOut!
+  const { user, logOut } = useAuth();
 
   return (
     <Screen style={styles.screen}>
@@ -41,7 +36,6 @@ function AccountScreen({ navigation }) {
           title={user.name}
           subTitle={user.email}
           image={require("../assets/mosh.jpg")}
-          // ^ here, I'm passing image prop instead of Icon Component, just like intended!
         />
       </View>
 

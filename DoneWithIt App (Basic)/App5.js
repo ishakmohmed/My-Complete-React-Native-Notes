@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
@@ -8,34 +7,36 @@ export default function App() {
       style={{
         flex: 1,
         flexDirection: "row",
+        // flexDirection: "row-reverse",
+        // flexDirection: "column-reverse",
         justifyContent: "center",
+        justifyContent: "flex-end",
+        justifyContent: "space-evenly", // other: space-between, space-around
         alignItems: "center",
-        flexWrap: "wrap",
-        alignContent: "center",
+        alignItems: "baseline",
+        alignItems: "stretch",
       }}
     >
       <View
         style={{
           backgroundColor: "yellow",
-          flexBasis: 100, // if primary axis is horizontal. this line is same as width: 100 - but if primary axis is vertical, this line is same like width: 100
-          flexGrow: 1, // will grow to take the available space! THIS LINE IS SAME AS FLEX: 1!
           width: 100,
           height: 100,
-          flexShrink: 1, // means if overflow this thing can shrink, SAME AS FLEX: -1
+          alignSelf: "flex-end", // alignSelf: only for this view
         }}
       />
       <View
         style={{
           backgroundColor: "blue",
           width: 100,
-          height: 100,
+          height: 300,
         }}
       />
       <View
         style={{
-          backgroundColor: "red",
+          backgroundColor: "green",
           width: 100,
-          height: 100,
+          height: 200,
         }}
       />
     </View>

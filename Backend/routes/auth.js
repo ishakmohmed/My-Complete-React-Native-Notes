@@ -18,7 +18,7 @@ router.post("/", validateWith(schema), (req, res) => {
 
   const token = jwt.sign(
     { userId: user.id, name: user.name, email },
-    "jwtPrivateKey" // i mean in actual app just store it in environment variable config file!
+    "jwtPrivateKey" // of course I'm going to store JWT key as env var in real app unlike right here
   );
   res.send(token);
 });

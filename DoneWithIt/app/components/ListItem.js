@@ -16,11 +16,9 @@ function ListItem({
 }) {
   return (
     <Swipeable renderRightActions={renderRightActions}>
-      {/* ^ basically the actual renderRightActions can be a view - () => <View><View> */}
       <TouchableHighlight underlayColor="#00000010" onPress={onPress}>
         <View style={styles.container}>
           {IconComponent}
-          {/* when you pass props, pass the image component (icon is implemented internally) ^ or pass an image like in line below */}
           {image && <Image source={image} style={styles.image}></Image>}
           <View style={styles.detailsContainer}>
             <AppText style={styles.title} numberOfLines={1}>

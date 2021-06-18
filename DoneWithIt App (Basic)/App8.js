@@ -17,8 +17,10 @@ export default function App() {
           backgroundColor: "yellow",
           width: 100,
           height: 100,
-          top: 50, // relative positioning (default) => from top right now (not from status bar necessarily) 50px!
-          position: "absolute", // self-explanatory, BUT THE KEY THING IS THAT OTHER BOXES WILL MOVE AS A RESULT OF THIS (if only the position was relative- the other boxes will stay exactly at the same place)
+          top: 50,
+          position: "absolute",
+          // other boxes will move as a result of this
+          // if position were relative, they wouldn't
         }}
       />
       <View

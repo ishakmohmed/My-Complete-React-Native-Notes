@@ -19,11 +19,8 @@ const Tweets = ({ navigation }) => (
     <Text>Tweets</Text>
     <Button
       title="View Tweet"
-      onPress={() => navigation.navigate("TweetDetails", { id: 1 })} // navigating with a payload
+      onPress={() => navigation.navigate("TweetDetails", { id: 1 })}
     />
-
-    {/* ^^^ that is the same with >>> */}
-    {/* <Link /> */}
   </Screen>
 );
 
@@ -39,27 +36,23 @@ const Account = () => (
   </Screen>
 );
 
-// Bottom tab navigator >>>
+const Stack = createStackNavigator();
+const FeedNavigator = () => (
+  <Stack.Navigator>
+    <Stack.Screen name="Tweets" component={Tweets} />
+
+    <Stack.Screen
+      name="TweetDetails"
+      component={TweetDetails}
+      options={({ route }) => ({ title: route.params.id })}
+    />
+  </Stack.Navigator>
+);
+
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => (
-  <Tab.Navigator
-    tabBarOptions={{
-      activeBackgroundColor: "tomato",
-      activeTintColor: "white",
-      inactiveBackgroundColor: "#eee",
-      inactiveTintColor: "black",
-    }}
-  >
-    <Tab.Screen
-      name="Feed"
-      component={Tweets}
-      options={{
-        tabBarIcon: ({ size, color }) => (
-          <MaterialCommunityIcons name="home" size={size} color={color} />
-        ),
-      }}
-    />
-
+  <Tab.Navigator>
+    <Tab.Screen name="Feed" component={FeedNavigator} />
     <Tab.Screen name="Account" component={Account} />
   </Tab.Navigator>
 );
@@ -67,7 +60,6 @@ const TabNavigator = () => (
 export default function App() {
   return (
     <NavigationContainer>
-      {/* <StackNavigator /> */}
       <TabNavigator />
     </NavigationContainer>
   );

@@ -6,8 +6,8 @@ import * as Notifications from "expo-notifications";
 export default function App() {
   const showNotification = () => {
     Notifications.presentLocalNotificationsAsync({
-      title: "The title ahahah",
-      body: "ok this is the body ahaha",
+      title: "The title",
+      body: "This is the body",
       data: {
         _displayInForeground: true,
       },
@@ -24,14 +24,12 @@ export default function App() {
     }
   );
 
-  // NEITHER ^ THOSE TWO (mosh) OR THIS > WORKS!
-
   async function schedulePushNotification() {
     await Notifications.scheduleNotificationAsync({
       content: {
         title: "You've got mail!",
         body: "Here is the notification body",
-        data: { data: "goes here" },
+        data: { data: "The data" },
       },
       trigger: { seconds: 2 },
     });

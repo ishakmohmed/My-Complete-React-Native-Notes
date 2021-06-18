@@ -34,7 +34,6 @@ function WelcomeScreen({ navigation }) {
             color="secondary"
             onPress={() => navigation.navigate(routes.REGISTER)}
           />
-          {/* ^^^ by default, color=primary */}
         </View>
       </ImageBackground>
     </View>
@@ -45,7 +44,7 @@ const styles = StyleSheet.create({
   background: {
     flex: 1,
     justifyContent: "flex-end",
-    alignItems: "center", // align-items: align-items according to secondary axis!
+    alignItems: "center", // align-items: align-items according to secondary axis
   },
   buttonContainer: {
     padding: 20,

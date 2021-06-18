@@ -7,18 +7,10 @@ import AccountNavigator from "./AccountNavigator";
 import FeedNavigator from "./FeedNavigator";
 import NewListingButton from "./NewListingButton";
 import routes from "./routes";
-import useNotifications from "../hooks/useNotifications";
-import navigation from "./rootNavigation";
-
-// TAB NAVIGATOR IN THIS FILE HAS FEEDNAVIGATOR!
-
-// WE WANNA IMPLEMENT NOTIFICATIONS IN APP NAVIAGATOR WHICH IS THE APP, NOT THE AUTH NAVIGATOR WHICH IS THE SIGN IN AND STUFFS!
 
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
-  // useNotifications(navigation.navigate("Account")); // I messed this up!
-
   return (
     <Tab.Navigator>
       <Tab.Screen
@@ -33,20 +25,12 @@ const AppNavigator = () => {
       <Tab.Screen
         name="ListingEdit"
         component={ListingEditScreen}
-        // set options to object or function that returns an object (please wrap with parantheses) >>>
         options={({ navigation }) => ({
           tabBarButton: () => (
             <NewListingButton
               onPress={() => navigation.navigate(routes.LISTING_EDIT)}
             />
           ),
-          // tabBarIcon: ({ color, size }) => (
-          //   <MaterialCommunityIcons
-          //     name="plus-circle"
-          //     color={color}
-          //     size={size}
-          //   />
-          // ),
         })}
       />
       <Tab.Screen

@@ -11,11 +11,11 @@ export default useLocation = () => {
   const getLocation = async () => {
     try {
       const { granted } = await Location.requestPermissionsAsync();
-      if (!granted) return; // but if permission is granted, take the location right away!
+      if (!granted) return; 
       const {
         coords: { latitude, longitude },
         timestamp,
-      } = await Location.getLastKnownPositionAsync(); // not as accurate as getCurrentPositionAsync()
+      } = await Location.getLastKnownPositionAsync(); 
       setLocation({ latitude, longitude });
     } catch (error) {
       console.log(error);

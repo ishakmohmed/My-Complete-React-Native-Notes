@@ -35,26 +35,24 @@ function ListingEditScreen() {
   const [progress, setProgress] = useState(0);
 
   const handleSubmit = async (listing, { resetForm }) => {
-    // ^^^ but2nd optional arg in formik submission handler (in this case handleSubmit) is FormikBag which I destructured and picked the resetForm!
-    setProgress(0); // before we show the upload screen, needa reset the progress to 0
+    setProgress(0);
     setUploadVisible(true);
     const result = await listingsApi.addListing(
       { ...listing, location },
       (progress) => setProgress(progress)
     );
-    // setUploadVisible(false); << removed this one, cause when we're done we're not supposed to immediately hide the screen cause we needa wait for the done animation to finish and then we'll set the setUploadVisible() to false, and this is possible thanks to onAnimationFinish prop that comes with Lottie!
 
     if (!result.ok) {
       setUploadVisible(false);
       return alert("Could not save the listing.");
     }
 
-    resetForm(); // if everything goes well, call resetForm which is destructured from FormikBag!
+    resetForm(); 
   };
 
   return (
     <Screen style={styles.container}>
-      <UploadScreen // this is a modal
+      <UploadScreen 
         onDone={() => setUploadVisible(false)}
         progress={progress}
         visible={uploadVisible}
@@ -62,7 +60,7 @@ function ListingEditScreen() {
       <Form
         initialValues={{
           title: "",
-          price: "", // eventhough it's a number, inside the form it's represented as string, of course you can set the initial value to 0 too!
+          price: "", 
           description: "",
           category: null,
           images: [],
@@ -93,7 +91,7 @@ function ListingEditScreen() {
         <FormField
           maxLength={255}
           multiline
-          numberOfLines={3} // only works on android
+          numberOfLines={3} 
           name="description"
           placeholder="Description"
         />

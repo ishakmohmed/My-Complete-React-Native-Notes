@@ -1,4 +1,3 @@
-// import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { View, Text } from "react-native";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
@@ -14,8 +13,8 @@ export default function App() {
           fontWeight: "600",
           color: "tomato",
           textTransform: "capitalize",
-          textDecorationLine: "underline line-through", // or underline only / line-through only!
-          textAlign: "center", // justify, left, right
+          textDecorationLine: "underline line-through", 
+          textAlign: "center", 
           fontSize: 30,
           lineHeight: 50,
         }}

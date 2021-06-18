@@ -12,16 +12,15 @@
 
 // function ListingsScreen({ navigation }) {
 //   const [listings, setListings] = useState([]);
-//   const [error, setError] = useState(true); // actually it should be false, but it didn't work so I changed to true so you'll get errors all the time unless you're connected to backend!
+//   const [error, setError] = useState(true); 
 //   const [loading, setLoading] = useState(false);
 
 //   const loadListings = async () => {
 //     setLoading(true);
-//     const response = await listingsApi.getListings(); // this promise is always resolved cause we're using apisauce, so we don't need try catch block
+//     const response = await listingsApi.getListings();
 //     setLoading(false);
 
 //     if (!response.ok) return setError(true);
-//     // in future you might need this: response.problem where problem is NONE, CLIENT_ERROR, SERVER_ERROR, TIMEOUT_ERROR, CONNECTION_ERROR, NETWORK_ERROR, CANCEL_ERROR
 
 //     setError(false);
 //     setListings(response.data);
@@ -39,8 +38,6 @@
 //           <Button title="Retry" onPress={loadListings} />
 //         </>
 //       )}
-//       {/* <ActivityIndicator animating={loading} size="large" color={colors.primary} /> */}
-//       {/* ^ instead of this from RN core, I'm using my own ActivityIndicator powered by Lottie >>> */}
 //       <ActivityIndicator visible={loading} />
 //       <FlatList
 //         data={listings}
@@ -67,12 +64,6 @@
 
 // export default ListingsScreen;
 
-// *************************************************************
-// *************************************************************
-// *************************************************************
-
-// PLEASE READ THE ABOVE COMMENTED OUT VERSION >>>>>>>>>>>>>>>>>>>
-
 import React, { useState, useEffect } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 
@@ -89,7 +80,7 @@ import useApi from "../hooks/useApi";
 function ListingsScreen({ navigation }) {
   const { data: listings, error, loading, request: loadListings } = useApi(
     listingsApi.getListings
-  ); // to make multiple API called, instead of destructuring the object you get from useApi, just use it as it is.
+  ); 
 
   useEffect(() => {
     loadListings(1, 2, 3);
@@ -98,8 +89,6 @@ function ListingsScreen({ navigation }) {
   return (
     <>
       <ActivityIndicator visible={loading} />
-      {/* ^ this is a custom ActivityIndicator, default one has different props, remember that */}
-
       <Screen style={styles.screen}>
         {error && (
           <>

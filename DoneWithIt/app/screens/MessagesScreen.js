@@ -33,9 +33,7 @@ function MessagesScreen(props) {
       <FlatList
         data={messages}
         keyExtractor={(message) => message.id.toString()}
-        // ^ pass a function that is used to extract a unique key from our array above!
         renderItem={({ item }) => (
-          // ^ arg is object of 3 properties { item, index, separators }
           <ListItem
             title={item.title}
             subTitle={item.description}
@@ -47,9 +45,6 @@ function MessagesScreen(props) {
           />
         )}
         ItemSeparatorComponent={ListItemSeparator}
-        // ^ weird, cause here you don't need angular bracket for your imported component, unless you wanna write all implementation here so you need to render a view with angular brackets over here!
-
-        // THIS IS HOW TO IMPLEMENT PULL TO REFRESH FEATURE >
         refreshing={refreshing}
         onRefresh={() =>
           setMessages([
@@ -66,7 +61,7 @@ function MessagesScreen(props) {
   );
 }
 
-// THIS IS ONE WAY TO FIX THE CONTENT STARTING ON STATUS BAR ON ANDROID (ON IOS, USE SAFEAREAVIEW) (I'VE IMPLEMENTED THE FIRST SOLUTION BELOW IN SCREEN.JS) >>>
+// how to fix content starting from status bar on Android (on iOS, use SafeAreaView)
 
 // const styles = StyleSheet.create({
 //   screen: {
@@ -74,14 +69,12 @@ function MessagesScreen(props) {
 //   },
 // });
 
-// THIS IS ANOTHER WAY TO DO IT, BUT I'M NOT IMPLEMENTING THIS IN THIS PROJECT BECAUSE I PREFER THE ABOVE WAY!
+// alternative way
 
-// // import Constants from "expo-constants";
-// // import Screen from './../components/Screen';
-// // import ListItemSeparator from './../components/ListItemSeparator';
-// // import ListItemDeleteAction from './../components/ListItemDeleteAction';
-// // // console.log(Constants); // has a bunch of properties including deviceId, deviceName, deviceYearClass, isDevice, statusBarHeight, et cetera...
-
-// now, in paddingTop in styling, all you need to do is >>> Constants.statusBarHeight!
+// import Constants from "expo-constants";
+// import Screen from './../components/Screen';
+// import ListItemSeparator from './../components/ListItemSeparator';
+// import ListItemDeleteAction from './../components/ListItemDeleteAction';
+// console.log(Constants); // has a bunch of properties including deviceId, deviceName, deviceYearClass, isDevice, statusBarHeight, etc...
 
 export default MessagesScreen;

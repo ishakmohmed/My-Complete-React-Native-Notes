@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet, KeyboardAvoidingView } from "react-native";
 import Text from "../components/Text";
 
-import { Image } from "react-native-expo-image-cache"; // here, I'm also using Image component from react-native-expo-image-cache (remember to expo install expo-blur as well)
+import { Image } from "react-native-expo-image-cache";
 
 import ListItem from "./../components/ListItem";
 import colors from "../config/colors";
@@ -22,7 +22,6 @@ function ListingDetailsScreen({ route }) {
           uri={listing.images[0].url}
           tint="light"
         />
-        {/* ^ THIS IS NOT IMAGE COMPONENT FROM REACT-NATIVE */}
         <View style={styles.detailsContainer}>
           <Text style={styles.title}>{listing.title}</Text>
           <Text style={styles.price}>RM {listing.price}</Text>

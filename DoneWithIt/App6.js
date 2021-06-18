@@ -1,20 +1,17 @@
-// ABOUT IMAGEPICKER >>>
-
 import React, { useEffect, useState } from "react";
 import * as ImagePicker from "expo-image-picker";
-// import * as Permissions from "expo-permissions"; // < or use the Permissions API
 import { Button, Text, View, Image } from "react-native";
 
 export default function App() {
   const [imageUri, setImageUri] = useState();
 
   const requestPermission = async () => {
-    // alternative to ImagePicker below that >>>
+    // alternative to ImagePicker 
 
     // const { granted } = await Permissions.askAsync(
     //   Permissions.MEDIA_LIBRARY,
     //   Permission.[SOMETHING ELSE]
-    //   you can pass a bunch of stuffs at the same time, btw there are options for calendar, camera, contacts, location, notifications, etc.
+    // )
     const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (!granted) alert("You need to enable permission to access the library.");
   };

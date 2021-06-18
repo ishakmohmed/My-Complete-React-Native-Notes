@@ -33,10 +33,8 @@ function ImageInput({ imageUri, onChangeImage }) {
   const selectImage = async () => {
     try {
       const result = await ImagePicker.launchImageLibraryAsync({
-        // optional object
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
-        quality: 0.5, // max is 1
-        // there are bunch of other properties too in this object
+        quality: 0.5, 
       });
       if (!result.cancelled) onChangeImage(result.uri);
     } catch (error) {

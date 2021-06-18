@@ -11,7 +11,6 @@ router.post(
   [auth, validateWith({ token: Joi.string().required() })],
   (req, res) => {
     const user = usersStore.getUserById(req.user.userId);
-    // ^^^ REQUEST.USER IS { userId: 1, name: 'Mosh', email: 'mosh@domain.com', iat: 1616480608 }
     if (!user) return res.status(400).send({ error: "Invalid user." });
 
     user.expoPushToken = req.body.token;

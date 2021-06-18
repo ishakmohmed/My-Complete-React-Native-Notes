@@ -22,13 +22,12 @@ const validationSchema = Yup.object().shape({
 });
 
 function RegisterScreen() {
-  const registerApi = useApi(userApi.register); // here I'm calling api using useApi because I need the loading state (in Activity indicator below), if I don't it'd be much more simpler
-  const loginApi = useApi(authApi.login); // here I'm calling api using useApi because I need the loading state (in Activity indicator below), if I don't it'd be much more simpler
+  const registerApi = useApi(userApi.register);
+  const loginApi = useApi(authApi.login); 
   const auth = useAuth();
   const [error, setError] = useState();
 
   const handleSubmit = async (userInfo) => {
-    // userInfo is the object that formik gives us!
     const result = await registerApi.request(userInfo);
 
     if (!result.ok) {
@@ -40,7 +39,6 @@ function RegisterScreen() {
       return;
     }
 
-    // if registration is successful, log them in right away!
     const { data: authToken } = await loginApi.request(
       userInfo.email,
       userInfo.password
@@ -51,7 +49,6 @@ function RegisterScreen() {
   return (
     <>
       <ActivityIndicator visible={registerApi.loading || loginApi.loading} />
-      {/* ^ take this component out of screen so you'll not have paddings and stuffs if you do set them */}
       <Screen style={styles.container}>
         <Form
           initialValues={{ name: "", email: "", password: "" }}
@@ -59,7 +56,7 @@ function RegisterScreen() {
           validationSchema={validationSchema}
         >
           <ErrorMessage
-            error={error} // or error in response
+            error={error} 
             visible={error}
           />
 

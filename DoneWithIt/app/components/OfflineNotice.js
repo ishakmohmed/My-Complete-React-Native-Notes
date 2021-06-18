@@ -5,13 +5,10 @@ import {
   Platform,
   StatusBar,
 } from "react-native";
-import Constants from "expo-constants"; // mosh used this but i used Platform.OS === ... just see below!
 import { useNetInfo } from "@react-native-community/netinfo";
 
 import Text from "./Text";
 import colors from "../config/colors";
-
-// Add this to App.js
 
 function OfflineNotice(props) {
   const netInfo = useNetInfo();
@@ -32,7 +29,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary,
     height: 100,
     justifyContent: "center",
-    // position: "absolute",
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
     width: "100%",
     zIndex: 1,

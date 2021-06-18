@@ -14,8 +14,6 @@ import Text from "./Text";
 import Screen from "./Screen";
 import PickerItem from "./PickerItem";
 
-// MOST OF THE CODE FOR APPPICKER IS COPIED FROM APPTEXTINPUT!
-
 function AppPicker({
   icon,
   items,
@@ -53,19 +51,16 @@ function AppPicker({
           />
         </View>
       </TouchableWithoutFeedback>
-      {/* for below, visible is boolean > */}
       <Modal visible={modalVisible} animationType="slide">
-        {/* ^ animation type: you've got slide, none and fade! */}
         <Screen>
           <Button title="close" onPress={() => setModalVisible(false)} />
           <FlatList
             numColumns={numberOfColumns}
-            // ^ this is a prop in FlatList
             data={items}
             keyExtractor={(item) => item.value.toString()}
             renderItem={({ item }) => (
-              <PickerItemComponent // This component is "flexible" - it is either pickeritem or categorypickeritem (which has icons)
-                item={item} // object with label and backgroundColor
+              <PickerItemComponent
+                item={item} 
                 label={item.label}
                 onPress={() => {
                   setModalVisible(false);

@@ -13,7 +13,6 @@ function FormPicker({
   width,
 }) {
   const { errors, setFieldValue, touched, values } = useFormikContext();
-  // ^ values is an object in formik which has key-value pairs for every field!
 
   return (
     <>
